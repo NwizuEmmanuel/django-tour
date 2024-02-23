@@ -1,0 +1,14 @@
+{% extends "polls/layout.html" %}
+{% block title %}Home{% endblock %}
+
+{% block body %}
+{% if latest_question %}
+<ul>
+    {% for q in latest_question %}
+        <li><a href="{% url 'polls:detail' q.id %}">{{q.question_text}}</a></li>
+    {% endfor %}
+</ul>
+{% else %}
+    <p>No poll avaliable.</p>
+{% endif %}
+{% endblock %}
